@@ -1,0 +1,16 @@
+
+<div class="row ">
+	<h2 class="center-align">Bienvenido al programa de transacciones</h2>
+	<div class="row">
+		<div class="container">
+              <a class='dropdown-trigger btn' data-target='dropdowncuenta' >Seleccione una cuenta</a>
+              <ul  id='dropdowncuenta' class='dropdown-content'>
+               <?php foreach ($this->cuentas as $cuenta) { ?>
+                <li><a href="<?php echo APP_URL."pages/indexcuenta/".$cuenta["id"]; ?>">
+                    <?php echo $cuenta["name"]; ?>
+                </a></li>
+                 <?php } ?>
+              </ul>
+		</div>
+	</div>
+</div>

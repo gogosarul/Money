@@ -1,0 +1,18 @@
+<div class="container z-depth-5">
+	<h2 class="center-align">Editar categoria</h2>
+	<div class="row">
+		<div class="container">
+			<form action="<?php echo APP_URL."categorias/editar"; ?>" method="POST">
+				<div class="row">
+					<input type="hidden" name="id" value="<?php echo $this->categoria["id"]; ?>">
+					<label for="name">Nombre</label>
+					<input type="text" name="name" value="<?php echo $this->categoria["name"]; ?>">
+
+					<div class="row center-align">
+						<button class="waves-effect waves-light btn" type="submit">Guardar</button>
+					</div>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>

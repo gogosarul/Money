@@ -1,0 +1,46 @@
+<div class="row z-depth-5">
+	<h2 class="center-align">Lista de Transacciones</h2>
+	<div class="row">
+		<div class="container right-align">
+			<a class="waves-effect waves-light btn" href="<?php echo APP_URL."transacciones/agregar"; ?>"><i class="material-icons left">add</i>Transaccion</a>
+		</div>
+		<div class="row">
+			<table class="highlight">
+				<thead>
+					<tr>
+						<th>Id</th>
+						<th>Descripcion</th>
+						<th>Fecha</th>
+						<th>Monto</th>
+						<th>Categoria</th>
+						<th>Cuenta</th>
+						<th>Accion</th>
+					</tr>
+				</thead>
+				<tbody>
+					<?php foreach ($this->transacciones as $transaccion): ?>
+                        <tr>
+                            <td><?php echo $transaccion["transactions"]["id"]; ?></td>
+                            
+                            <td><?php echo $transaccion["transactions"]["description"]; ?></td>
+                            
+                            <td><?php $date=date_create($transaccion["transactions"]["date"]);
+                                echo date_format($date,'d/m/Y');  ?></td>
+                                
+                            <td><?php echo $transaccion["transactions"]["amount"]; ?></td>
+                            
+                            <td><?php echo $transaccion["categories"]["name"]; ?></td>
+            
+                            <td><?php echo $transaccion["accounts"]["name"]; ?>
+                            </td>
+                            <td>
+                            	<a href="<?php echo APP_URL."transacciones/editar/".$transaccion["transactions"]["id"]; ?>"><i class="material-icons">edit</i></a>
+                            	<a href="<?php echo APP_URL."transacciones/eliminar/".$transaccion["transactions"]["id"]; ?>"><i class="material-icons">delete</i></a>
+                            </td>
+                        </tr>
+                    <?php endforeach; ?>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>

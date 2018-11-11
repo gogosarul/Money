@@ -1,0 +1,52 @@
+<div class="container z-depth-5">
+	<h2 class="center-align">Editar transaccion</h2>
+	<div class="row">
+		<div class="container">
+			<form action="<?php echo APP_URL."transacciones/editar"; ?>" method="POST">
+				<div class="row">
+					<input type="hidden" name="id" value="<?php echo $this->transaccion["id"]; ?>">
+					
+					<label for="description">Descripcion</label>
+					<textarea name="description"><?php echo $this->transaccion["description"]; ?></textarea>
+
+					<label for="date">Fecha</label>
+					<input type="date" name="date" value="<?php echo $this->transaccion["date"]; ?>">
+
+					<label for="amount">Monto</label>
+					<input type="number" name="amount" value="<?php echo $this->transaccion["amount"]; ?>">
+						<select name="category_id">
+							<?php foreach ($this->categorias as $categoria) {
+								if ($this->transaccion["category_id"]==$categoria["id"]) { ?>
+									<option selected value="<?php echo $categoria["id"]; ?>">
+									<?php echo $categoria["name"]; ?></option>
+							<?php }else{ ?>
+									<option value="<?php echo $categoria["id"]; ?>">
+									<?php echo $categoria["name"]; ?></option>
+							<?php
+								
+								}
+							}
+							?>
+						</select>
+						<select name="account_id">
+							<?php foreach ($this->cuentas as $cuenta) {
+								if ($this->transaccion["account_id"]==$cuenta["id"]) { ?>
+									<option selected value="<?php echo $cuenta["id"]; ?>">
+									<?php echo $cuenta["name"]; ?></option>
+							<?php }else{ ?>
+									<option value="<?php echo $cuenta["id"]; ?>">
+									<?php echo $cuenta["name"]; ?></option>
+							<?php
+								
+								}
+							}
+							?>
+						</select>
+					<div class="row center-align">
+						<button class="waves-effect waves-light btn" type="submit">Guardar</button>
+					</div>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>
